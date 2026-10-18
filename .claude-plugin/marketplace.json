@@ -1,0 +1,14 @@
+{
+  "name": "nerdmartech",
+  "owner": {
+    "name": "NerdMarTech"
+  },
+  "description": "NerdMarTech plugins for Claude Code — save tokens, ship faster.",
+  "plugins": [
+    {
+      "name": "context-saver",
+      "source": "./plugins/context-saver",
+      "description": "Context meter after every reply, step warnings, and /ctx-trim to hide unused skills/plugins/MCP per project."
+    }
+  ]
+}
