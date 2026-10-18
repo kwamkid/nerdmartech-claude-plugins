@@ -30,7 +30,24 @@ Every message re-reads the whole conversation, so a 200k-token chat costs roughl
 | **Context meter** (Stop hook) | After every reply: `context 82k / target 200k (41%) 🟢` — shown to you only, costs no tokens. Works in VS Code, where the status line doesn't show. |
 | **Step warning** (UserPromptSubmit hook) | Warns once each time context crosses 100k, 150k, 200k… |
 | **`/ctx-trim`** (skill) | Lists every skill, plugin and MCP server loaded in this project, proposes which to hide, and applies it **for this project only** after you confirm. `/ctx-trim reset` undoes it. |
+| **`/tbc-memo`** (skill) | Saves where you are to `memo/tbc/<topic>.md` (≤3k chars, English) — one file per topic, so several chats in one repo don't overwrite each other. |
+| **`/tbc-continue`** (skill) | In a fresh chat: lists open topics, loads only the one you pick, checks it against git, proposes the next step, then deletes that note. |
+| `templates/token-rules.md` | Short token-saving rules to paste into `CLAUDE.md` (`/ctx-trim` offers to add them). |
 | `scripts/statusline.sh` | Optional colored status line for the terminal (see below). |
+
+**The habit it teaches** — one chat = one task:
+
+```
+work → meter turns yellow / warning → /tbc-memo → /clear → /tbc-continue → keep working
+```
+
+You carry ~1k tokens of notes into the new chat instead of re-reading 150k+ of history on every reply.
+
+วิธีใช้ให้ประหยัด: 1 แชท = 1 งาน · เตือนเมื่อไหร่ให้ `/tbc-memo` → `/clear` → `/tbc-continue` · ยกบันทึกสั้น ๆ ไปแชทใหม่แทนการลากประวัติแชทยาว ๆ ไปทุกข้อความ
+
+> After `/ctx-trim` or any settings/plugin/MCP change, **restart Claude Code** (close the panel or reload the window). `/clear` does not reload settings.
+>
+> แก้ค่าตั้ง/ปลั๊กอิน/MCP แล้วต้องปิด-เปิด Claude Code ใหม่ · `/clear` ไม่โหลดค่าใหม่
 
 **Settings** — add to `env` in `~/.claude/settings.json`:
 

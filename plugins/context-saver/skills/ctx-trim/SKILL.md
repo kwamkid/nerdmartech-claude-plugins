@@ -12,6 +12,7 @@ Goal: a fresh chat in this project should load only what this project uses. Ever
 - **MCP tools**: Claude Code defers them — only tool *names* sit in context (~10–20 tokens each). `/context` "MCP tools (deferred)" is NOT counted in the used total. Still worth cutting big unused servers (50+ tools).
 - **CLAUDE.md / memory**: loaded every chat — usually the biggest fixed cost. Out of scope here; suggest moving domain detail into `.claude/rules/*.md` with `paths:` if CLAUDE.md is large.
 - Invoked skills cannot be unloaded mid-chat — only `/clear` frees them.
+- Settings, plugins and MCP servers are read when Claude Code **starts**. `/clear` does not reload them — restart (close the panel/tab, or reload the editor window).
 
 ## Step 1 — Inventory (read-only)
 Run from the project root:
@@ -24,7 +25,7 @@ echo "== enabledPlugins (user/project/local)"; for f in ~/.claude/settings.json 
 echo "== MCP user";    jq -r '.mcpServers//{}|keys[]' ~/.claude.json
 echo "== MCP project"; jq -r --arg p "$P" '.projects[$p].mcpServers//{}|keys[]' ~/.claude.json; [ -f .mcp.json ] && jq -r '.mcpServers|keys[]' .mcp.json
 echo "== already disabled"; jq -c --arg p "$P" '.projects[$p].disabledMcpServers' ~/.claude.json
-echo "== current overrides"; jq -c '{skillOverrides,syncClaudeAiPlugins,syncClaudeAiSkills}' .claude/settings.local.json 2>/dev/null
+echo "== current overrides"; jq -c '{skillOverrides,syncClaudeAiPlugins,syncClaudeAiSkills,disableClaudeAiConnectors}' .claude/settings.local.json 2>/dev/null
 git check-ignore -q .claude/settings.local.json && echo "local settings: git-ignored OK" || echo "WARN: settings.local.json not ignored"
 ```
 Also use what is already in your context: the skill listing (incl. `plugin:skill` and claude.ai-synced skills) and the deferred-tool name list (MCP servers, incl. `claude.ai <Name>` connectors and `plugin:<plugin>:<server>`).
@@ -56,7 +57,8 @@ jq --argjson so '{"skill-a":"user-invocable-only","skill-b":"name-only"}' \
    '.skillOverrides = ((.skillOverrides//{}) + $so) | .enabledPlugins = ((.enabledPlugins//{}) + $pl)' \
    .claude/settings.local.json > /tmp/sl.json && mv /tmp/sl.json .claude/settings.local.json
 ```
-- All claude.ai-synced **plugins** irrelevant → `.syncClaudeAiPlugins = false`. All synced **skills** irrelevant → `.syncClaudeAiSkills = false` (otherwise use `skillOverrides` per skill).
+- All claude.ai-synced **plugins** irrelevant → `.syncClaudeAiPlugins = false`. All synced **skills** irrelevant → `.syncClaudeAiSkills = false` (otherwise use `skillOverrides` per skill). In the local file these only hide them for this workspace; nothing is deleted.
+- All `claude.ai <Name>` connectors irrelevant → `.disableClaudeAiConnectors = true` (simpler than listing each in `disabledMcpServers`).
 
 MCP → per-project list in `~/.claude.json` (same list `/mcp` toggles). Names exactly as the server is named: `dfs-mcp`, `claude.ai Supabase`, `plugin:<plugin>:<server>`.
 ```bash
@@ -67,7 +69,10 @@ P="$PWD"; jq --arg p "$P" --argjson add '["server-a","claude.ai X"]' \
 (`cat >` keeps the file's inode/permissions.) Re-read both files with jq to verify.
 
 ## Step 4 — Report
-Tell the user: what was hidden/disabled (counts), that it takes effect in the **next new chat**, and to compare `/context` there. Mention the backup location.
+Tell the user: what was hidden/disabled (counts), that it takes effect only after **restarting Claude Code** (close the panel/tab or reload the window — `/clear` is not enough), and to compare `/context` in the new session. Mention the backup location.
+
+## Step 5 — Offer the token-saving rules (optional)
+If `~/.claude/CLAUDE.md` has no token-saving section, show `templates/token-rules.md` (two folders up from this skill's base directory) and offer to append it there (all projects) or to the project's `CLAUDE.md`. Append only after the user agrees; skip lines the file already covers.
 
 ## `/ctx-trim reset`
 Remove `skillOverrides`, the `false` entries added to `enabledPlugins`, and `syncClaudeAi*` from `.claude/settings.local.json`; remove the servers this skill added from `disabledMcpServers` (ask which, since the user may have toggled some via `/mcp`). Confirm before writing.

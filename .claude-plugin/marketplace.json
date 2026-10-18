@@ -8,7 +8,7 @@
     {
       "name": "context-saver",
       "source": "./plugins/context-saver",
-      "description": "Context meter after every reply, step warnings, and /ctx-trim to hide unused skills/plugins/MCP per project."
+      "description": "Context meter after every reply, step warnings, /ctx-trim to hide unused skills/plugins/MCP per project, and /tbc-memo + /tbc-continue to resume work in a fresh chat."
     }
   ]
 }

@@ -1,7 +1,7 @@
 {
   "name": "context-saver",
-  "version": "0.1.0",
-  "description": "See how much context every reply uses, get warned as it grows, and trim unused skills/plugins/MCP per project (/ctx-trim).",
+  "version": "0.2.0",
+  "description": "See how much context every reply uses, get warned as it grows, and trim unused skills/plugins/MCP per project (/ctx-trim), and hand work over between chats with /tbc-memo + /tbc-continue.",
   "author": { "name": "NerdMarTech" },
   "license": "MIT",
   "keywords": ["context", "tokens", "cost", "hooks", "skills", "mcp"]

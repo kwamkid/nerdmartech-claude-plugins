@@ -12,10 +12,10 @@ last=$(cat "$state" 2>/dev/null || echo 0)
 [ $step -le $last ] && exit 0
 echo $step > "$state"
 if [ "$CTX_LANG" = th ]; then
-  [ $k -ge $target ] && m="context ${k}k เกินเป้า ${target}k แล้ว — จบงานนี้แล้ว /clear (หรือ /compact)" \
-                     || m="context ${k}k (ข้าม ${step}k) — ถ้างานย่อยนี้จบแล้ว เริ่มแชทใหม่จะถูกกว่า"
+  [ $k -ge $target ] && m="context ${k}k เกินเป้า ${target}k แล้ว — จบงานนี้แล้ว /tbc-memo → /clear → /tbc-continue" \
+                     || m="context ${k}k (ข้าม ${step}k) — ถ้างานย่อยนี้จบแล้ว /tbc-memo → /clear จะถูกกว่า"
 else
-  [ $k -ge $target ] && m="context ${k}k is over the ${target}k target — finish this task, then /clear (or /compact)" \
-                     || m="context ${k}k (passed ${step}k) — if this sub-task is done, a fresh chat is cheaper"
+  [ $k -ge $target ] && m="context ${k}k is over the ${target}k target — finish this task, then /tbc-memo → /clear → /tbc-continue" \
+                     || m="context ${k}k (passed ${step}k) — if this sub-task is done, /tbc-memo → /clear is cheaper"
 fi
 jq -n --arg m "$m" '{systemMessage:$m}'
