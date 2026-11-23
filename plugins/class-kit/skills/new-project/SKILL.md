@@ -33,10 +33,13 @@ Reply in Thai, short, one step at a time. The user is a beginner: every time the
 ## 3. Starting code
 - Template → `git clone <url> .` inside the new folder (folder must be empty except the 3 files above: clone into a temp subfolder, then move its contents up, keep our CLAUDE.md content by merging the template's CLAUDE.md under it). Then `rm -rf .git` so the project starts its own history. If the template has `.env.example` → copy to `.env.local` and list which values are still empty.
 - Empty web → `npx create-next-app@latest . --ts --tailwind --eslint --app --src-dir --use-npm --yes` (folder must contain only our 3 files; if create-next-app refuses, create in a temp subfolder and move up).
-- `npm install` if not done. Then run it: start `npm run dev` and send the link `http://localhost:3000` to click. "เห็นหน้าเว็บแล้วบอกผมครับ".
+- `npm install` if not done.
+- **Theme first, before any page:** if the project has `docs/DESIGN.md` / a theme file (`globals.css` tokens, `/theme` page) → fill it from `../../00-Context/02-Brand.md` (logo, font, colours, sizes) and put the logo into `public/`. Empty web → create the tokens in `globals.css` (colours, font, font sizes, radius, button) + a `/theme` preview page. Tell the user: "ทุกหน้าที่สร้างต่อจากนี้ใช้ค่าจาก theme นี้ · เปลี่ยนแบรนด์ทีหลังแก้ที่เดียว".
+- Run it: start `npm run dev` and send the link `http://localhost:3000` to click. "เห็นหน้าเว็บแล้วบอกผมครับ".
 
 ## 4. Git + GitHub
 - `.gitignore` must contain `.env*` (except `.env.example`), `node_modules`, `.next`. Check before the first commit.
+- Before the first commit check `git config user.email` is set and `~/.claude/settings.json` has `"attribution": {"commit": "", "pr": ""}` — missing → run the fix from `/check-machine` first (Vercel Hobby refuses to deploy a private repo when a commit carries a co-author or an email that isn't the owner's GitHub email).
 - `git init -b main` · `git add -A` · `git commit -m "start <name>"`.
 - Tell the user: open https://github.com/new → Repository name = `<name>` → **Private** → do NOT tick README → กด **Create repository** → copy the link that ends with `.git` and paste it here.
 - `git remote add origin <link>` · `git push -u origin main`. Login popup → tell them to sign in with GitHub in the browser window.
