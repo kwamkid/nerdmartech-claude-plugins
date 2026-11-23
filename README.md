@@ -19,6 +19,14 @@ Then start a new chat. Requires `jq` (`brew install jq` · `apt install jq`).
 
 ## Plugins
 
+### class-kit — Nerd MarTech Class Kit (Thai)
+
+Starter kit for the Nerd MarTech AI course: chat-length + quota meter after every reply, `/memo` `/todo` `/setup-folders` `/check-machine` `/fix-error` `/ship` `/mobile-check` `/project-post` `/project-image`. → [plugins/class-kit](plugins/class-kit/README.md)
+
+```
+/plugin install class-kit@nerdmartech
+```
+
 ### context-saver
 
 Every message re-reads the whole conversation, so a 200k-token chat costs roughly 2× a 100k one per call. This plugin keeps that visible and helps you cut the fixed overhead.
