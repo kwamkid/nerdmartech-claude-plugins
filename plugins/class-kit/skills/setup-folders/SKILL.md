@@ -1,6 +1,6 @@
 ---
 name: setup-folders
-description: สร้างโครงโฟลเดอร์บริษัท + CLAUDE.md สารบัญ + กฎตั้งต้น 7 ข้อ. Use when the user types /setup-folders, or says "ตั้งโฟลเดอร์", "สร้างโครงโฟลเดอร์บริษัท", "เริ่มโปรเจกต์ใหม่", "setup folders".
+description: สร้างโครงโฟลเดอร์บริษัท + CLAUDE.md สารบัญ + กฎตั้งต้น 7 ข้อ. Use when the user types /setup-folders, or says "ตั้งโฟลเดอร์", "สร้างโครงโฟลเดอร์บริษัท", "setup folders".
 ---
 
 # setup-folders — company folder + index + starter rules

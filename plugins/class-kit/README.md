@@ -6,14 +6,14 @@
 
 ## ติดตั้ง
 
-ในแชต Claude Code (VS Code) พิมพ์ทีละบรรทัด:
+เปิด terminal ใน VS Code (เมนู Terminal → New Terminal) แล้วพิมพ์ทีละบรรทัด:
 
 ```
-/plugin marketplace add kwamkid/nerdmartech-claude-plugins
-/plugin install class-kit@nerdmartech
+claude plugin marketplace add kwamkid/nerdmartech-claude-plugins
+claude plugin install class-kit@nerdmartech
 ```
 
-แล้วปิดแชต เปิดแชตใหม่ 1 ครั้ง · ต้องมี Node.js ในเครื่อง (เช็กได้ด้วย `/check-machine`)
+แล้วกลับไปที่แผง Claude เปิดแชตใหม่ 1 ครั้ง (คำสั่ง `/plugin` ใช้ในแผง VS Code ไม่ได้ ต้องลงผ่าน terminal) · ต้องมี Node.js ในเครื่อง (เช็กได้ด้วย `/check-machine`)
 
 ## ได้อะไรบ้าง
 
@@ -29,6 +29,7 @@
 |---|---|
 | `/memo` | จบเรื่อง หรือแชตยาวแล้ว → จดสิ่งที่ทำลง `memo/NOTES.md` งานค้างลง `memo/TODO.md` |
 | `/todo` | เปิดแชตใหม่แล้วอยากทำงานค้างต่อ |
+| `/new-project` | เริ่มโปรเจกต์ใหม่เอง: โฟลเดอร์ + CLAUDE.md → GitHub → Vercel (→ Supabase) ทีละขั้น |
 | `/setup-folders` | สร้างโฟลเดอร์บริษัท + สารบัญ CLAUDE.md + กฎตั้งต้น 7 ข้อ |
 | `/check-machine` | เช็กว่าเครื่องมี Git · Node · npm ครบไหม |
 | `/fix-error` | เจอ error → แปะข้อความหรือรูปแคปจอ ให้อธิบายและแก้ |
