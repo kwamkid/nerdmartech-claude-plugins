@@ -45,12 +45,13 @@ Reply in Thai, short, one step at a time. The user is a beginner: every time the
 - `git remote add origin <link>` · `git push -u origin main`. Login popup → tell them to sign in with GitHub in the browser window.
 
 ## 5. Vercel
-- Tell the user: open https://vercel.com/new → หา repo `<name>` → กด **Import**. If the project has `.env.local` values → open **Environment Variables** on that page and add each one (list names; tell them to copy values from `.env.local`, never paste keys into chat) → กด **Deploy**.
+- Tell the user: open https://vercel.com/new → หา repo `<name>` → กด **Import**. If the project has `.env.local` values → open **Environment Variables** on that page and add each one (list names; tell them to copy values from `.env.local` or the source page, never paste keys into chat) → กด **Deploy**.
 - When done, ask for the link (`https://<name>.vercel.app`) → write it to `เว็บจริง:` in CLAUDE.md. From now on `/push` = push → Vercel updates by itself.
 
 ## 6. Supabase (only if data/login is needed)
 - Tell the user: open https://supabase.com/dashboard/new → choose org → Project name `<name>` → set a database password (save it in their password manager) → Region **Singapore** → **Create new project**.
-- Then Project Settings → API Keys: copy Project URL + publishable key into `.env.local` (`NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY`) and the same two into Vercel → Settings → Environment Variables. Give the link https://vercel.com/dashboard.
+- Then Project Settings → API Keys. **Keys never go through the chat (clipboard method):** ask the user to click Copy on ONE value, then reply "คัดลอกแล้ว". Write it straight from the clipboard into `.env.local` without printing it — Mac: `printf 'NEXT_PUBLIC_SUPABASE_URL=%s\n' "$(pbpaste)" >> .env.local` · Windows PowerShell: `Add-Content .env.local ("NEXT_PUBLIC_SUPABASE_URL=" + (Get-Clipboard))`. Repeat for `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY`. Confirm only the variable names (never echo values). If the user pastes a key into the chat anyway, tell them to rotate it later.
+- Same two values into Vercel → Settings → Environment Variables: the user pastes them there themselves. Give the link https://vercel.com/dashboard.
 - Google login is set up later, in its own chat (as in course step 1.10b).
 
 ## 7. Finish

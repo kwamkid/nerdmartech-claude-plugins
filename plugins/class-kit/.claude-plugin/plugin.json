@@ -1,6 +1,6 @@
 {
   "name": "class-kit",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Nerd MarTech Class Kit — starter kit for the AI course: chat-length + quota meter after every reply, /memo and /todo to hand work between chats, folder setup with starter rules, /new-project from empty folder to GitHub + Vercel, machine check, error explainer, one-step deploy, mobile check, and brand-safe post/image skills.",
   "author": { "name": "Nerd MarTech" },
   "license": "MIT",
