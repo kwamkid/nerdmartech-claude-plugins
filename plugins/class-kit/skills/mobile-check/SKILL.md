@@ -16,4 +16,4 @@ Reply in Thai. Report problems as a short list, then fix them.
    Also check 768px (tablet) once.
 4. No browser tools → read the page's code and look for the usual causes: fixed widths (`w-[600px]`, `width: 600px`), wide tables without horizontal scroll, `flex` rows that don't wrap, large paddings, `whitespace-nowrap` on long text. Then tell the user how to look themselves: open the localhost link in Chrome → `F12` (Mac `Cmd+Option+I`) → click the phone icon → pick iPhone 12 Pro.
 5. Fix what you found, then list: what was wrong → what you changed.
-6. For a real phone, use the Vercel link after /ship (the 192.168… link usually doesn't work on class Wi-Fi).
+6. For a real phone, use the Vercel link after /push (the 192.168… link usually doesn't work on class Wi-Fi).

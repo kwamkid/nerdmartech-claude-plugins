@@ -33,7 +33,7 @@ claude plugin install class-kit@nerdmartech
 | `/setup-folders` | สร้างโฟลเดอร์บริษัท + สารบัญ CLAUDE.md + กฎตั้งต้น 7 ข้อ |
 | `/check-machine` | เช็กว่าเครื่องมี Git · Node · npm ครบไหม |
 | `/fix-error` | เจอ error → แปะข้อความหรือรูปแคปจอ ให้อธิบายและแก้ |
-| `/ship` | เอาเว็บขึ้นออนไลน์ (GitHub → Vercel) แล้วส่งลิงก์ให้กด |
+| `/push` | เอาเว็บขึ้นออนไลน์ (GitHub → Vercel) แล้วส่งลิงก์ให้กด |
 | `/mobile-check` | เช็กหน้าเว็บบนจอมือถือว่าล้นจอไหม |
 | `/project-post` | เขียนโพสต์ตามแบรนด์และข้อมูลจริงของบริษัท |
 | `/project-image` | สร้างภาพประกอบด้วย Higgsfield ในสไตล์เดียวกันทุกครั้ง |

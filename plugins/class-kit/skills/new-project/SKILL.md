@@ -46,7 +46,7 @@ Reply in Thai, short, one step at a time. The user is a beginner: every time the
 
 ## 5. Vercel
 - Tell the user: open https://vercel.com/new → หา repo `<name>` → กด **Import**. If the project has `.env.local` values → open **Environment Variables** on that page and add each one (list names; tell them to copy values from `.env.local`, never paste keys into chat) → กด **Deploy**.
-- When done, ask for the link (`https://<name>.vercel.app`) → write it to `เว็บจริง:` in CLAUDE.md. From now on `/ship` = push → Vercel updates by itself.
+- When done, ask for the link (`https://<name>.vercel.app`) → write it to `เว็บจริง:` in CLAUDE.md. From now on `/push` = push → Vercel updates by itself.
 
 ## 6. Supabase (only if data/login is needed)
 - Tell the user: open https://supabase.com/dashboard/new → choose org → Project name `<name>` → set a database password (save it in their password manager) → Region **Singapore** → **Create new project**.

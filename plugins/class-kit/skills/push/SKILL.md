@@ -1,11 +1,11 @@
 ---
-name: ship
-description: เอาเว็บขึ้นออนไลน์ — เช็ก build, commit, push ขึ้น GitHub แล้ว Vercel deploy ให้เอง ส่งลิงก์ให้กด. Use when the user types /ship, or says "เอาขึ้นเว็บ", "ขึ้นออนไลน์", "deploy", "อัปเดตเว็บจริง", "ship".
+name: push
+description: เอาเว็บขึ้นออนไลน์ — เช็ก build, commit, push ขึ้น GitHub แล้ว Vercel deploy ให้เอง ส่งลิงก์ให้กด. Use when the user types /push, or says "เอาขึ้นเว็บ", "ขึ้นออนไลน์", "push", "deploy", "อัปเดตเว็บจริง", "ship".
 ---
 
-# ship — build → commit → push → Vercel
+# push — build → commit → push → Vercel
 
-Reply in Thai, short. Typing /ship = permission to push this time only.
+Reply in Thai, short. Typing /push = permission to push this time only.
 
 1. `git status --short`. Nothing changed and nothing to push → "ไม่มีอะไรใหม่ให้ขึ้น" and stop.
 2. Safety: if `.env`, `.env.local` or any file with keys is about to be committed → stop and add it to `.gitignore` first.
