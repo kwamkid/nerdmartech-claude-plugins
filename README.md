@@ -21,7 +21,7 @@ Then start a new chat. Requires `jq` (`brew install jq` · `apt install jq`).
 
 ### class-kit — Nerd MarTech Class Kit (Thai)
 
-Starter kit for the Nerd MarTech AI course: chat-length + quota meter after every reply, `/memo` `/todo` `/setup-folders` `/check-machine` `/fix-error` `/ship` `/mobile-check` `/project-post` `/project-image`. → [plugins/class-kit](plugins/class-kit/README.md)
+Starter kit for the Nerd MarTech AI course: chat-length + quota meter after every reply, `/memo` `/todo` `/setup-folders` `/check-machine` `/fix-error` `/push` `/ui-check` `/project-post` `/project-image`. → [plugins/class-kit](plugins/class-kit/README.md)
 
 ```
 /plugin install class-kit@nerdmartech

@@ -13,7 +13,7 @@
     {
       "name": "class-kit",
       "source": "./plugins/class-kit",
-      "description": "Nerd MarTech Class Kit (Thai) — chat-length + quota meter after every reply (Node, Mac + Windows), /memo /todo, /new-project, /setup-folders with starter rules, /check-machine, /fix-error, /push, /mobile-check, /project-post, /project-image."
+      "description": "Nerd MarTech Class Kit (Thai) — chat-length + quota meter after every reply (Node, Mac + Windows), /memo /todo, /new-project, /setup-folders with starter rules, /check-machine, /fix-error, /push, /ui-check, /project-post, /project-image."
     }
   ]
 }
